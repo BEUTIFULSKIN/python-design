@@ -123,13 +123,13 @@ if __name__ == '__main__':
     print "--------A factory prodce Mouse----------"
     a_m_pro = a_fac.get_m_product()
     a_m_pro.show_all_info()
-    print "--------A factory prodce KAeybroad------"
+    print "--------A factory prodce Keyboard------"
     a_k_pro = a_fac.get_k_product()
     a_k_pro.show_all_info()
     print "--------B factory prodce Mouse----------"
     b_fac = BFactory()
     b_m_pro = b_fac.get_m_product()
     b_m_pro.show_all_info()
-    print "--------B factory prodce Keybroad-------"
+    print "--------B factory prodce Keyboard-------"
     b_k_pro = b_fac.get_k_product()
     b_k_pro.show_all_info()
