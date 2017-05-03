@@ -55,7 +55,7 @@ class Mouse(Product):
                       t_band="Panasonic")
 
 
-class Keybroad(Product):
+class Keyboard(Product):
     def __init__(self):
         Product.__init__(self)
 
@@ -97,7 +97,7 @@ class AFactory(AbstractFactory):
         return self.get_product()
 
     def get_k_product(self):
-        self.product = Keybroad()
+        self.product = Keyboard()
         self.product.set_logitech_product()
         return self.get_product()
 
@@ -113,7 +113,7 @@ class BFactory(AbstractFactory):
         return self.get_product()
 
     def get_k_product(self):
-        self.product = Keybroad()
+        self.product = Keyboard()
         self.product.set_dell_product()
         return self.get_product()
 
