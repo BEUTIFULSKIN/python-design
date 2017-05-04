@@ -50,7 +50,7 @@ class NodeComposite(Composite):
             self.t_next = node
             self.level += 1
         else:
-            print "already next node, if you continue add will be change next node"
+            print "already exist next node, if you continue add will be replace next node"
 
     def traverse(self):
         if self.t_next:
