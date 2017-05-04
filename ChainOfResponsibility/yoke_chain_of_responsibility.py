@@ -72,9 +72,3 @@ if __name__ == '__main__':
     user_type_list = ['service', 'hello', 'express', 'world', 'after_sale']
     for item in user_type_list:
         a_s_h.handle(item)
-
-
-
-
-
-
