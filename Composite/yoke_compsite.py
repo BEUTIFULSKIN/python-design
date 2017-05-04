@@ -27,6 +27,12 @@ class Composite:
     def traverse(self):  # 遍历
         pass
 
+    def get_level(self):
+        return self.level
+
+    def get_next_node(self):
+        return self.t_next
+
 
 class NodeLeaf(Composite):
     def __init__(self, t_index):
@@ -37,7 +43,7 @@ class NodeLeaf(Composite):
         print "this is leaf node, can not add"
 
     def traverse(self):
-        print self.index
+        print "index: {}, level: {}".format(self.index, self.level)
 
 
 class NodeComposite(Composite):
@@ -48,13 +54,13 @@ class NodeComposite(Composite):
     def add(self, node):
         if not self.t_next:
             self.t_next = node
-            self.level += 1
+            self.level = self.t_next.get_level() + 1
         else:
             print "already exist next node, if you continue add will be replace next node"
 
     def traverse(self):
         if self.t_next:
-            print self.index
+            print "index: {}, level: {}".format(self.index, self.level)
             self.t_next.traverse()
 
 if __name__ == "__main__":
@@ -64,7 +70,9 @@ if __name__ == "__main__":
     leaf_2 = NodeLeaf('002')
     c_node_2 = NodeComposite('102')
     c_node_2.add(c_node_1)
-    c_node_2.traverse()
+    c_node_3 = NodeComposite('103')
+    c_node_3.add(c_node_2)
+    c_node_3.traverse()
     leaf_2.add(leaf_1)
     leaf_2.traverse()
 
