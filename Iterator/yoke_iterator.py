@@ -10,34 +10,36 @@
 #
 #     描述  : 迭代器模式 —— 提供一种方法依次访问聚合对象的内部元素，不直接暴露聚合对象的内部
 #
+import random
 
 
 class Other:
-    def __init__(self, t_name, t_high, t_weight, t_age):
-        self.name = t_name
-        self.high = t_high
-        self.weight = t_weight
-        self.age = t_age
+    def __init__(self):
+        self._name = None
+        self._high = None
+        self._weight = None
+        self._age = None
+        self.choose_one()
 
-    def get_other_content(self):
-        return [self.name, self.high, self.weight, self.age]
+    def choose_one(self):
+        self._name = random.choice(['xixi', 'wangwang', 'hehe'])
+        self._high = random.randint(155, 170)
+        self._weight = random.randint(45, 60)
+        self._age = random.randint(15, 20)
 
-
-class A:
-    def __init__(self, t_other):
-        self.other_obj = t_other
+    def _get_other_content(self):
+        return [self._name, self._high, self._weight, self._age]
 
     def to_count(self, num):
-        other_attr = self.other_obj.get_other_content()
+        other_attr = self._get_other_content()
         for i, attr in zip(range(num), other_attr):
             yield attr
 
 
 if __name__ == '__main__':
-    other = Other('xixi', 168, 45, 16)
-    a = A(other)
-    two_attr_func = lambda: a.to_count(2)
-    four_attr_func = lambda: a.to_count(4)
+    other = Other()
+    two_attr_func = lambda: other.to_count(2)
+    four_attr_func = lambda: other.to_count(4)
 
     for item in two_attr_func():
         print item
